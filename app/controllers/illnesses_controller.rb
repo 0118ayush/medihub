@@ -1,0 +1,6 @@
+class IllnessesController < ApplicationController
+
+ 
+
+
+end

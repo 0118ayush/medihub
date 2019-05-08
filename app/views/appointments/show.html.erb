@@ -1,0 +1,20 @@
+<h3> Day </h3>
+<%= @appointment.day %>
+
+<h3> Time </h3>
+<%= @appointment.time %>
+
+<h3> Patient </h3>
+<p><%= @appointment.patient.full_name %> </p>
+
+<h3> Category </h3>
+<p><%= @appointment.patient.symptoms.map(&:name)[0] %></p>
+
+<h3> Report </h3>
+<p><%= @appointment.patient.symptoms.map(&:description)[0] %></p>
+
+<hr>
+<p>
+<%= link_to "Edit", edit_appointment_path(@appointment) %> |
+<%= link_to "Delete", appointment_path(@appointment), method: :delete, data: {confirm: "Are you sure?"} %>
+</p>

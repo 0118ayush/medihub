@@ -1,0 +1,9 @@
+<%= form_for @appointment do |f| %>
+<%= f.label "Choose available day:" %>
+<%= f.collection_select( :days, @appointment_days, :day, :day) %><br><br>
+
+
+<%= f.submit "Change appointment" %>
+<% end %>
+
+<%= f.collection_select(:blogger_id, Blogger.all, :id, :name) %><br><br>

@@ -1,0 +1,34 @@
+<h3> Full name: </h3>
+<%= @patient.full_name %>
+
+<h3> Age: </h3>
+<%= @patient.age %>
+
+<h3> Height: </h3>
+<p><%= @patient.height %> </p>
+
+<h3> Weight: </h3>
+<p><%= @patient.weight %></p>
+
+<h3> Relationship status: </h3>
+<% if @patient.relationship_status == true %>
+<%= "In relationship" %>
+<% else %>
+<%= "Single" %>
+<% end %>
+
+<h3> Employment status: </h3>
+<% if @patient.employment_status == true %>
+<%= "Employed" %>
+<% else %>
+<%= "Unemployed" %>
+<% end %>
+
+<h3> Address: </h3>
+<p><%= @patient.address %></p>
+
+<h3> Contact number: </h3>
+<p><%= @patient.contact_number %></p>
+
+<h3> Email: </h3>
+<p><%= @patient.email %></p>

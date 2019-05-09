@@ -1,14 +1,8 @@
-<h2>Available appointments</h2>
-<% @available_appointments.each do |day, appointments| %>
-  <div>
-    <h4><%= day %> </h4>
-    <% appointments.each do |appointment| %>
-    <span><%= appointment.time %> | </span>
-    <% end %>
-  <% end %>
-  </div>
-
-
+<h3>
+  <%= link_to "Book Appointment", new_appointment_path %> |
+  <%= link_to "All Patients", patients_path %>
+</h3>
+<hr>
 
 <h2>Booked appointments</h2>
 <% @booked_appointments.each do |day, appointments| %>

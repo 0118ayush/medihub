@@ -7,7 +7,7 @@ class DoctorsController < ApplicationController
   end
 
   def show
-    @appointment = Appointment.find(params[:id])
+  # byebug
   end
 
   def new
@@ -17,7 +17,7 @@ class DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
-      session[:doctor_id] = @doctor.id 
+      session[:doctor_id] = @doctor.id
       redirect_to appointments_path, :notice => "Account Created"
     else
       render 'new'
@@ -42,7 +42,7 @@ class DoctorsController < ApplicationController
   end
 
   def doctor_params
-    params.require(:doctor).permit(:first_name, :last_name, :email, :password)
+    params.require(:doctor).permit(:first_name, :last_name, :email, :contact_number, :password)
   end
 
 end

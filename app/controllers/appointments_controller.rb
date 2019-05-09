@@ -8,7 +8,35 @@ class AppointmentsController < ApplicationController
      @booked_appointments = helpers.booked_appointments.each do |d,a|
        a.select {|ap| ap.doctor_id == session[:doctor_id]}
      end
+
    end
+
+   def create
+    # @app = Appointment.find(params[:appointment][:id])
+    # doctor = Doctor.find(11)
+    # @patient = Patient.find_by(full_name: params[:appointment][:patient][:full_name])
+    # @app.update(doctor: doctor, patient: @patient)
+
+    @appointment = Appointment.find(params[:appointment][:id])
+    # @doctor = Doctor.find(session[:doctor_id])
+    @patient = Patient.find(params[:appointment][:patient_id])
+    @doctor = Doctor.find(session[:doctor_id])
+
+    @appointment.patient = @patient
+    @appointment.doctor = @doctor
+
+    @appointment.save
+
+
+    illness = Illness.create(
+      symptom_id: params[:appointment][:symptom][:symptom_id],
+      patient: @patient
+    )
+
+    # byebug
+
+    redirect_to appointments_path
+  end 
 
    def show
      @patient = Patient.find(params[:id])
@@ -16,13 +44,10 @@ class AppointmentsController < ApplicationController
 
    def new
      @appointment = Appointment.new
-     @symptom = Symptom.new
      @appointment_days = helpers.get_appointments
    end
 
-   def create
-     @
-   end
+
 
    def edit
      @appointment_days = helpers.get_appointments

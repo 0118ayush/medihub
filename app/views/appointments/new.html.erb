@@ -1,24 +1,19 @@
-
-<h1>MEDIHELP</h1>
-
 <h2>Book New Appointment</h2>
-<hr>
+
     <%= form_for @appointment do |f| %>
 
     <%= f.label "Choose available day:" %>
-    <%= f.collection_select(:id, @appointment_days, :id, :available_day_time) %>
+    <%= f.collection_select(:id, @appointment_days, :id, :available_day_time) %><br><br>
 
+    <%= f.label :full_name %>
+    <%= f.collection_select(:patient_id, Patient.all, :id, :first_name) %><br><br>
+
+    <%= f.fields_for :symptom do |p| %>
+      <%= p.label "Symptom category:" %>
+      <%= p.collection_select(:symptom_id, Symptom.all, :id, :name) %><br><br>
     <% end %>
 
 
-    <%= form_for @symptom do |f| %>
-    <p>
-    <%= f.label "Symptom category" %>
-    <%= f.collection_select(:id, Symptom.all, :id, :name) %>
-    </p>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    </p>
-    <p>
-    <%= f.submit 'Book Appointment', class: 'btn btn-primary' %>
+      <%= f.submit "Create Appointment" %>
+
     <% end %>

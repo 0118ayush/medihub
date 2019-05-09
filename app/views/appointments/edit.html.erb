@@ -1,0 +1,15 @@
+<h1>MEDIHELP</h1>
+
+<h2>Edit Appointment</h2>
+<hr>
+
+<%= form_for @appointment do |f| %>
+<%= f.label "Choose available day:" %>
+<%= f.collection_select(:id, @appointment_days, :id, :available_day_time) %>
+<br><br>
+<%= f.label "Patient:" %>
+<%= f.collection_select(:patient_id, Patient.all, :id, :full_name) %>
+<br><br>
+
+<%= f.submit "Change appointment" %>
+<% end %>

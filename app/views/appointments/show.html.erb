@@ -1,0 +1,26 @@
+<h1>MEDIHELP</h1>
+
+<h3> Day </h3>
+<hr>
+<%= @appointment.day %><br><br>
+
+<h3> Time </h3>
+<%= @appointment.time %><br><br>
+
+<h3> Patient </h3>
+<hr>
+<p><%= link_to @appointment.patient.full_name, @patient %></p><br><br>
+
+<h3> Category </h3>
+<hr>
+<p><%= link_to @appointment.patient.symptoms.map(&:name)[0] %></p><br><br>
+
+<h3> Report </h3>
+<hr>
+<p><%= @appointment.patient.symptoms.map(&:description)[0] %></p><br><br>
+
+<hr>
+<p>
+<%= link_to "Edit", edit_appointment_path(@appointment) %> |
+<%= link_to "Delete", appointment_path(@appointment), method: :delete, data: {confirm: "Are you sure?"} %>
+</p>

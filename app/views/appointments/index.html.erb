@@ -1,0 +1,29 @@
+<h1>MEDIHELP</h1>
+
+<h2>Appointments</h2>
+<hr>
+
+<h3><%= link_to "Account", doctor_path(session[:doctor_id]) %></h3>
+<h3><%= link_to "Book Appointment", new_appointment_path %></h3>
+<%= form_tag("/destroy", method: :get) do %>
+     <%= submit_tag "Logout" %>
+
+
+<h2>Available appointments</h2>
+<% @available_appointments.each do |day, appointments| %>
+  <div>
+    <h4><%= day %> </h4>
+    <% appointments.each do |appointment| %>
+    <span><%= link_to appointment.time, new_appointment_path %> | </span>
+    <% end %>
+  <% end %>
+  </div>
+
+<h2>Booked appointments</h2>
+<% @booked_appointments.each do |day, appointments| %>
+  <h4><%= day %> </h4>
+  <% appointments.each do |appointment| %>
+  <span><%= link_to appointment.time, appointment_path(appointment) %>  |  </span>
+  <% end %>
+<% end %>
+<% end %>

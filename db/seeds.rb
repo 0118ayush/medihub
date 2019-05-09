@@ -46,7 +46,7 @@ doctor_10 = Doctor.create(first_name: Faker::Name.first_name, last_name: Faker::
 
 # SYMPTOM
 
-sym_1 = Symptom.create!(name: "Vertiginous",description: "Throwing up last few days.")
+sym_1 = Symptom.create(name: "Vertiginous",description: "Throwing up last few days.")
 sym_2 = Symptom.create(name: "Lung disease",description: "Out of breath.")
 sym_3 = Symptom.create(name: "Osteoporosis",description: "Pain in knee.")
 sym_4 = Symptom.create(name: "Neurological",description: "Persistant headache.")

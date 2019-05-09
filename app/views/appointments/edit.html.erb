@@ -1,9 +1,11 @@
 <%= form_for @appointment do |f| %>
+
 <%= f.label "Choose available day:" %>
-<%= f.collection_select( :days, @appointment_days, :day, :day) %><br><br>
+<%= f.collection_select(:id, @appointment_days, :id, :available_day_time) %>
+<br><br>
+<%= f.label "Patient:" %>
+<%= f.collection_select(:patient_id, Patient.all, :id, :full_name) %>
+<br><br>
 
-
-<%= f.submit "Change appointment" %>
+<%= f.submit "Update appointment" %>
 <% end %>
-
-<%= f.collection_select(:blogger_id, Blogger.all, :id, :name) %><br><br>

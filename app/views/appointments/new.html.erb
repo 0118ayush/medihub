@@ -1,0 +1,19 @@
+<h2>Book New Appointment</h2>
+
+    <%= form_for @appointment do |f| %>
+
+    <%= f.label "Choose available day:" %>
+    <%= f.collection_select(:id, @appointment_days, :id, :available_day_time) %><br><br>
+
+    <%= f.label :full_name %>
+    <%= f.collection_select(:patient_id, Patient.all, :id, :first_name) %><br><br>
+
+    <%= f.fields_for :symptom do |p| %>
+      <%= p.label "Symptom category:" %>
+      <%= p.collection_select(:symptom_id, Symptom.all, :id, :name) %><br><br>
+    <% end %>
+
+
+      <%= f.submit "Create Appointment" %>
+
+    <% end %>

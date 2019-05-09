@@ -20,9 +20,9 @@ module AppointmentsHelper
      }
   end
 
-  def get_appointment_days
+  def get_appointments
 
-  available_appointments.values
+  available_appointments.values.flatten
 
   end
 

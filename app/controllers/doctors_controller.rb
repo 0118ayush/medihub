@@ -3,11 +3,11 @@ class DoctorsController < ApplicationController
   before_action :find_doctor, only: [:show, :edit, :update, :destroy]
 
   def index
-    @doctors = Doctor.all
+
   end
 
   def show
-    @appointment = Appointment 
+
   end
 
   def new
@@ -15,7 +15,8 @@ class DoctorsController < ApplicationController
   end
 
   def create
-
+    session[:username] = params[:username]
+    redirect_to appointments_path
   end
 
   def edit

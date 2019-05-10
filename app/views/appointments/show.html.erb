@@ -5,7 +5,7 @@
 <%= @appointment.time %>
 
 <h3> Patient </h3>
-<p><%= @appointment.patient.full_name %> </p>
+<p><%= link_to @appointment.patient.full_name, patient_path(@appointment.patient) %> </p>
 
 <h3> Category </h3>
 <p><%= @appointment.patient.symptoms.map(&:name)[0] %></p>
